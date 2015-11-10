@@ -27,28 +27,42 @@ var main = function(){
 		}		 
 	});
 	var cont = 0;
+	var tp;
 
-	$("#tel").keydown(function(event){		 
+	$("#tel").keyup(function(){
+		tp = $("#tel")[0].value.toString();
+		console.log("Tel: " + tp);
 
-		 if(event.which === 8){
+	});
+
+	$("#tel").keydown(function(event){			
+
+		if(event.which === 8 & cont > 0){
+			if(tp[cont-1] === "-"){
+				tp = tp.slice(0, cont-1) + tp.slice(cont);			
+		 		$("#tel")[0].value = tp;
+		 	}
+
 		 	cont--;
 		 	console.log(cont);
-		 }
-		 else if(event.which > 47 event.which < 58){
-		 	cont++;
-		 	console.log(cont);
-		 }
-		 
-		 if(cont === 4 || cont === 7){
-		 	$("#tel")[0].value = $("#tel")[0].value + "-";
+		}
+		else{
+			cont++;
+			console.log(cont);			
 
-		 }
-		 else if(cont > 10){
+			if(cont === 4 || cont === 7){
+		 		$("#tel")[0].value = $("#tel")[0].value + "-";
+			}			
+		}
+
+		if(cont > 10){
 		 	event.stopPropagation();
-		 }
-		 
+		}
+		
 	});
+
 }
 
 $(document).ready(main);
+
 
