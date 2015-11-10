@@ -38,8 +38,12 @@ var main = function(){
 	$("#tel").keydown(function(event){			
 
 		if(event.which === 8 & cont > 0){
-			if(tp[cont-1] === "-"){
+			if(cont === 4){
 				tp = tp.slice(0, cont-1) + tp.slice(cont);			
+		 		$("#tel")[0].value = tp;
+		 	}
+		 	else if(cont === 7){
+		 		tp = tp.slice(0, cont) + tp.slice(cont+1);			
 		 		$("#tel")[0].value = tp;
 		 	}
 
