@@ -63,8 +63,9 @@ var main = function(){
 		}
 		else{
 			if(event.which === 8){
-				return true;
 				cont--;
+				console.log(cont);
+				return true;
 			}
 
 			return false;
