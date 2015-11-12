@@ -38,33 +38,32 @@ var main = function(){
 	});
 
 	$("#tel").keydown(function(event){			
+		if(cont < 10){
+			if(event.which === 8 & cont > 0){
+				if(cont === 4){
+					tf = tf.slice(0, cont-1) + tf.slice(cont);			
+		 			$("#tel")[0].value = tf;
+		 		}
+		 		else if(cont === 7){
+		 			tf = tf.slice(0, cont) + tf.slice(cont+1);			
+		 			$("#tel")[0].value = tf;
+		 		}
 
-		if(event.which === 8 & cont > 0){
-			if(cont === 4){
-				tf = tf.slice(0, cont-1) + tf.slice(cont);			
-		 		$("#tel")[0].value = tf;
-		 	}
-		 	else if(cont === 7){
-		 		tf = tf.slice(0, cont) + tf.slice(cont+1);			
-		 		$("#tel")[0].value = tf;
-		 	}
+		 		cont--;
+		 		console.log(cont);
+			}
+			else{
+				cont++;
+				console.log(cont);			
 
-		 	cont--;
-		 	console.log(cont);
+				if(cont === 4 || cont === 7){
+		 			$("#tel")[0].value = $("#tel")[0].value + "-";
+				}			
+			}
 		}
 		else{
-			cont++;
-			console.log(cont);			
-
-			if(cont === 4 || cont === 7){
-		 		$("#tel")[0].value = $("#tel")[0].value + "-";
-			}			
-		}
-
-		if(cont > 10){
-		 	event.stopPropagation();
-		}
-		
+			return false;
+		}		
 	});
 
 }
