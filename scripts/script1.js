@@ -62,6 +62,11 @@ var main = function(){
 			}
 		}
 		else{
+			if(event.which === 8){
+				return true;
+				cont--;
+			}
+
 			return false;
 		}		
 	});
