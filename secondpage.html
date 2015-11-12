@@ -1,11 +1,16 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>Form2</title>
 		<link href='https://fonts.googleapis.com/css?family=Lato:400,300italic' rel='stylesheet' type='text/css'>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+
+		<script src="js/jQuery.js"></script>
+		<script src="js/script2.js"></script>
 	</head>
 	<body style="background-color:darkslategray">
 		<div class="container infobox">
@@ -14,69 +19,196 @@
 			</div>
 
 			<div class="row subh">
-				<h2>Informacion Basica</h2>				
+				<h2>Información Básica</h2>				
 			</div>
 
 			<div class="row form2">
-				<div class="col-md-7" style="padding:0">
-					<div class="col-md-4" style="padding-left:0">
-						<h4><b>Direccion</b><span></span></h4>
+				<div id="dir1">
+					<div class="col-md-7" style="padding:0">
+						<div class="col-md-4" style="padding-left:0">
+							<p><span id="p1direc" style="cursor:pointer; padding-right:10px">-</span>Dirección #1:</p>
+						</div>
+						<div class="col-md-8" style="padding-left:0" align="right">
+							<button  id="ad">Add</button>
+							<button style="margin-left:10px" id="remov1">Remove</button>
+						</div>					
 					</div>
-					<div class="col-md-8" style="padding-left:0" align="right">
-						<button  id="ad">Add</button>
-						<button style="margin-left:10px" id="remov">Remove</button>
-					</div>					
+
+					<div class="col-md-7 direc" id="direc1">					
+						<h4><font style="padding-right:58px">Calle:</font><input type="text" id="cal1"></h4>
+						<h4><font style="padding-right:43px">Ciudad:</font><input type="text" id="ciud1"> *</h4>
+						<div class="col-md-12 msjerr" id="msjerr1" style="display:none; margin-right:0">
+							<h5>Este campo es requerido.</h5>
+						</div>
+						<h4><font style="padding-right:22px">Provincia:</font>
+							<select id="pro1">
+								<option>-</option>
+								<option>Azua</option>
+								<option>Baoruco</option>
+								<option>Barahona</option>
+								<option>Dajabón</option>
+								<option>Distrito Nacional</option>
+								<option>Duarte</option>
+								<option>Elías Piña</option>
+								<option>El Seibo</option>
+								<option>Espaillat</option>
+								<option>Hato Mayor</option>
+								<option>Hermanas Mirabal</option>
+								<option>Independencia</option>
+								<option>La Altagracia</option>
+								<option>La Romana</option>
+								<option>La Vega</option>
+								<option>Maria Trinidad Sánchez</option>
+								<option>Monseñor Nouel</option>
+								<option>Monte Cristi</option>
+								<option>Monte Plata</option>
+								<option>Pedernales</option>
+								<option>Peravia</option>
+								<option>Puerto Plata</option>
+								<option>Samaná</option>
+								<option>Sánchez Ramírez</option>
+								<option>San Cristóbal</option>
+								<option>San José de Ocoa</option>
+								<option>San Juan</option>
+								<option>San Pedro de Macorís</option>
+								<option>Santiago</option>
+								<option>Santiago Rodríguez</option>
+								<option>Santo Domingo</option>
+								<option>Valverde</option>
+							</select> *
+						</h4>
+						<div class="col-md-12 msjerr" id="msjerr2" style="display:none; margin-right:0">
+							<h5>Este campo es requerido.</h5>
+						</div>
+					</div>
 				</div>
 
-				<div class="col-md-7 direc" id="direc">					
-					<h4><font style="padding-right:63px">Calle:</font><input type="text"></h4>
-					<h4><font style="padding-right:48px">Ciudad:</font><input type="text"> *</h4>
-					<h4><font style="padding-right:27px">Provincia:</font>
-						<select>
-							<option>-</option>
-							<option>Azua</option>
-							<option>Baoruco</option>
-							<option>Barahona</option>
-							<option>Dajabon</option>
-							<option>Distrito Nacional</option>
-							<option>Duarte</option>
-							<option>Elias Piña</option>
-							<option>El Seibo</option>
-							<option>Espaillat</option>
-							<option>Hato Mayor</option>
-							<option>Hermanas Mirabal</option>
-							<option>Independencia</option>
-							<option>La Altagracia</option>
-							<option>La Romana</option>
-							<option>La Vega</option>
-							<option>Maria Trinidad Sanchez</option>
-							<option>Monseñor Nouel</option>
-							<option>Monte Cristi</option>
-							<option>Monte Plata</option>
-							<option>Pedernales</option>
-							<option>Peravia</option>
-							<option>Puerto Plata</option>
-							<option>Samana</option>
-							<option>Sanchez Ramirez</option>
-							<option>San Cristobal</option>
-							<option>San José de Ocoa</option>
-							<option>San Juan</option>
-							<option>San Pedro de Macoris</option>
-							<option>Santiago</option>
-							<option>Santiago Rodriguez</option>
-							<option>Santo Domingo</option>
-							<option>Valverde</option>
-						</select> *</h4>
+				<div id="dir2" style="display:none">
+					<div class="col-md-7" style="padding:0">
+						<div class="col-md-4" style="padding-left:0">
+							<p style="margin-top:10px"><span id="p2direc" style="cursor:pointer; padding-right:10px;">-</span>Dirección #2:</p>
+						</div>
+						<div class="col-md-8" style="padding-left:0" align="right">
+							<button style="margin-left:10px" id="remov2">Remove</button>
+						</div>					
+					</div>
+
+					<div class="col-md-7 direc" id="direc2" >					
+						<h4><font style="padding-right:58px">Calle:</font><input type="text" id="cal2"></h4>
+						<h4><font style="padding-right:43px">Ciudad:</font><input type="text" id="ciud2"> *</h4>
+						<div class="col-md-12 msjerr" id="msjerr3" style="display:none; margin-right:0">
+							<h5>Este campo es requerido.</h5>
+						</div>
+						<h4><font style="padding-right:22px">Provincia:</font>
+							<select id="pro2">
+								<option>-</option>
+								<option>Azua</option>
+								<option>Baoruco</option>
+								<option>Barahona</option>
+								<option>Dajabón</option>
+								<option>Distrito Nacional</option>
+								<option>Duarte</option>
+								<option>Elías Piña</option>
+								<option>El Seibo</option>
+								<option>Espaillat</option>
+								<option>Hato Mayor</option>
+								<option>Hermanas Mirabal</option>
+								<option>Independencia</option>
+								<option>La Altagracia</option>
+								<option>La Romana</option>
+								<option>La Vega</option>
+								<option>Maria Trinidad Sánchez</option>
+								<option>Monseñor Nouel</option>
+								<option>Monte Cristi</option>
+								<option>Monte Plata</option>
+								<option>Pedernales</option>
+								<option>Peravia</option>
+								<option>Puerto Plata</option>
+								<option>Samaná</option>
+								<option>Sánchez Ramírez</option>
+								<option>San Cristóbal</option>
+								<option>San José de Ocoa</option>
+								<option>San Juan</option>
+								<option>San Pedro de Macorís</option>
+								<option>Santiago</option>
+								<option>Santiago Rodríguez</option>
+								<option>Santo Domingo</option>
+								<option>Valverde</option>
+							</select> *
+						</h4>
+						<div class="col-md-12 msjerr" id="msjerr4" style="display:none; margin-right:0">
+							<h5>Este campo es requerido.</h5>
+						</div>
+					</div>
+				</div>
+
+				<div id="dir3" style="display:none">
+					<div class="col-md-7" style="padding:0">
+						<div class="col-md-4" style="padding-left:0">
+							<p style="margin-top:10px"><span id="p3direc" style="cursor:pointer; padding-right:10px;">-</span>Dirección #3:</p>
+						</div>
+						<div class="col-md-8" style="padding-left:0" align="right">
+							<button style="margin-left:10px" id="remov3">Remove</button>
+						</div>					
+					</div>
+
+					<div class="col-md-7 direc" id="direc3" >					
+						<h4><font style="padding-right:58px">Calle:</font><input type="text" id="cal3"></h4>
+						<h4><font style="padding-right:43px">Ciudad:</font><input type="text" id="ciud3"> *</h4>
+						<div class="col-md-12 msjerr" id="msjerr5" style="display:none; margin-right:0">
+							<h5>Este campo es requerido.</h5>
+						</div>
+						<h4><font style="padding-right:22px">Provincia:</font>
+							<select id="pro3">
+								<option>-</option>
+								<option>Azua</option>
+								<option>Baoruco</option>
+								<option>Barahona</option>
+								<option>Dajabón</option>
+								<option>Distrito Nacional</option>
+								<option>Duarte</option>
+								<option>Elías Piña</option>
+								<option>El Seibo</option>
+								<option>Espaillat</option>
+								<option>Hato Mayor</option>
+								<option>Hermanas Mirabal</option>
+								<option>Independencia</option>
+								<option>La Altagracia</option>
+								<option>La Romana</option>
+								<option>La Vega</option>
+								<option>Maria Trinidad Sánchez</option>
+								<option>Monseñor Nouel</option>
+								<option>Monte Cristi</option>
+								<option>Monte Plata</option>
+								<option>Pedernales</option>
+								<option>Peravia</option>
+								<option>Puerto Plata</option>
+								<option>Samaná</option>
+								<option>Sánchez Ramírez</option>
+								<option>San Cristóbal</option>
+								<option>San José de Ocoa</option>
+								<option>San Juan</option>
+								<option>San Pedro de Macorís</option>
+								<option>Santiago</option>
+								<option>Santiago Rodríguez</option>
+								<option>Santo Domingo</option>
+								<option>Valverde</option>
+							</select> *
+						</h4>
+						<div class="col-md-12 msjerr" id="msjerr6" style="display:none; margin-right:0">
+							<h5>Este campo es requerido.</h5>
+						</div>
+					</div>
 				</div>
 			</div>
 
 			<div class="row buttonrow">
 				<div class="col-md-10"></div>
 				<div class="col-md-1" align="center">
-					<a href="firstpage.html"><button id="bbtn1">Back</button></a>
+					<button id="bbtn">Back</button>
 				</div>
 				<div class="col-md-1" align="center">
-					<a href="thirdpage.html"><button id="nbtn2">Next</button></a>
+					<button id="nbtn">Next</button>
 				</div>
 			</div>
 		</div>
