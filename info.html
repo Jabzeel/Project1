@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Form</title>
+		<title>Formulario</title>
 		<link href='https://fonts.googleapis.com/css?family=Lato:400,300italic' rel='stylesheet' type='text/css'>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+
+		<script src="js/jQuery.js"></script>
+		<script src="js/scriptInfo.js"></script>
 	</head>
 	<body style="background-color:darkslategray">
 		<div class="container infobox">
@@ -14,15 +18,40 @@
 			</div>
 
 			<div class="row subh">
-				<h2>Informacion Basica</h2>				
+				<h2><b>Información Básica</b></h2>				
 			</div>
 
-			<div class="row form1">
-			</div>
+			<div class="row inForm">
+					<h4>Nombre:</h4>
+					<h3 id="nom"></h3>
 
+					<h4>Apellido: </h4>
+					<h3 id="ap"></h3>
+
+					<h4>Teléfono: </h4>
+					<h3 id="tel"></h3>
+
+					<h4>Fecha de Nacimiento: </h4>
+					<h3 id="fn"></h3>
+
+					<h4>Direccion: </h4>
+					<h3 id="d1"></h3>
+
+					<h4 id="dd2" style="display:none">Direccion #2: </h4>
+					<h3 id="d2" style="display:none"></h3>
+
+					<h4 id="dd3" style="display:none">Direccion #3: </h4>
+					<h3 id="d3" style="display:none"></h3>
+
+					<h4>Cédula: </h4>
+					<h3 id="ced"></h3>
+
+					<h4>Tarjeta de Credito: </h4>
+					<h3 id="tc"></h3>
+			</div>
 
 			<div class="row buttonrow">
-				<a href="thirdpage.html"><button id="bbtn3">Back</button></a>
+				<button id="bbtn">Back</button>
 			</div>
 		</div>
 	</body>
