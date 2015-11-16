@@ -1,12 +1,17 @@
 var main = function(){
-	var nm;
-	var ap;
-	var fn;
+	
+	if(localStorage !== null){
+		$("#nom")[0].value = localStorage.getItem("nombre");
+		$("#ape")[0].value = localStorage.getItem("apellido");
+		$("#tel")[0].value = localStorage.getItem("telef");
+		$("#bday ")[0].value = localStorage.getItem("fnacim");
+	}
 
 	$("#nbtn").click(function(){
-		nm = $("#nom")[0].value;
-		ap = $("#ape")[0].value;
-		fn = $("#bday")[0].value;
+		var nm = $("#nom")[0].value;
+		var ap = $("#ape")[0].value;
+		var fn = $("#bday")[0].value;
+		var tf = $("#tel")[0].value;
 
 		if(nm.length < 3){
 			$("#nom").css("margin-bottom","5px");
@@ -25,14 +30,18 @@ var main = function(){
 		}
 
 		if(nm.length >= 3 & ap.length >= 3){
+		 	localStorage.setItem("nombre", nm);
+		 	localStorage.setItem("apellido", ap);
+		 	localStorage.setItem("telef", tf);
+		 	localStorage.setItem("fnacim", fn);
+		 	
 		 	window.location.href="secondpage.html";
 		}		 
 	});
 	var cont = 0;	
-	var tf;
 
 	$("#tel").keyup(function(){
-		tf = $("#tel")[0].value.toString();
+		var tf = $("#tel")[0].value.toString();
 		console.log("Tel: " + tf);
 
 	});
@@ -75,3 +84,4 @@ var main = function(){
 }
 
 $(document).ready(main);
+
