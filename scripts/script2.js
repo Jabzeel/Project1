@@ -1,5 +1,33 @@
-
 var main = function(){
+
+	if(localStorage.getItem("direccion1") !== null){
+		var d1 = localStorage.getItem("direccion1").split(", ");
+
+		$("#cal1")[0].value = d1[0];
+		$("#ciud1")[0].value = d1[1];
+		$("#pro1")[0].value = d1[2];
+	}	
+
+	if(localStorage.getItem("direccion2") !== null){
+		var d2 = localStorage.getItem("direccion2").split(", ");
+
+		$("#cal2")[0].value = d2[0];
+		$("#ciud2")[0].value = d2[1];
+		$("#pro2")[0].value = d2[2];
+
+		$("#dir2").show();
+	}
+
+	if(localStorage.getItem("direccion3") !== null){
+		var d3 = localStorage.getItem("direccion3").split(", ");
+
+		$("#cal3")[0].value = d3[0];
+		$("#ciud3")[0].value = d3[1];
+		$("#pro3")[0].value = d3[2];
+
+		$("#dir3").show();
+	}
+
 	var calle1, calle2, calle3;
 	var ciud1, ciud2, ciud3;
 	var pro1, pro2, pro3;
@@ -167,11 +195,21 @@ var main = function(){
 		switch(cont){
 			case 1:
 				if(ciud1.length > 0 & prov1 != "-"){
-		 			window.location.href="thirdpage.html";
+					var direcc1 = calle1 + ", " + ciud1 + ", " + prov1;
+		 			
+		 			localStorage.setItem("direccion1", direcc1);
+
+		 			window.location.href="thirdpage.html";		 			
 				}
 				break;
 			case 2:
 				if(ciud1.length > 0 & prov1 != "-" & ciud2.length > 0 & prov2 != "-"){
+					var direcc1 = calle1 + ", " + ciud1 + ", " + prov1;
+		 			var direcc2 = calle2 + ", " + ciud2 + ", " + prov2;
+		 			
+		 			localStorage.setItem("direccion1", direcc1);
+		 			localStorage.setItem("direccion2", direcc2);
+
 		 			window.location.href="thirdpage.html";
 				}
 				break;
@@ -197,6 +235,14 @@ var main = function(){
 				}
 
 				if(ciud1.length > 0 & prov1 != "-" & ciud2.length > 0 & prov2 != "-" & ciud3.length > 0 & prov3 != "-"){
+		 			var direcc1 = calle1 + ", " + ciud1 + ", " + prov1;
+		 			var direcc2 = calle2 + ", " + ciud2 + ", " + prov2;
+		 			var direcc3 = calle3 + ", " + ciud3 + ", " + prov3;
+		 			
+		 			localStorage.setItem("direccion1", direcc1);
+		 			localStorage.setItem("direccion2", direcc2);
+		 			localStorage.setItem("direccion3", direcc3);
+
 		 			window.location.href="thirdpage.html";
 				}
 				break;
@@ -204,6 +250,7 @@ var main = function(){
 	});
 
 	$("#bbtn").click(function(){
+		
 		window.location.href="firstpage.html";
 	});
 }
